@@ -178,7 +178,7 @@ unsigned char *createImage(State state) {
                 }
         }
 
-        int startingPoint = PROCNUM-1;
+        int startingPoint = (PROCNUM-1)*CHUNK_SIZE;
         for(int px=startingPoint;px<w;px+=CHUNK_SIZE){
                         int py = 0;
                         MPI_Recv(&imgReceive[0],size,MPI_UNSIGNED_CHAR,MPI_ANY_SOURCE,0,MPI_COMM_WORLD,&status);
